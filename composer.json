@@ -1,0 +1,21 @@
+{
+    "name": "nourman/ukk-pembayaran-spp",
+    "description": "UKK Pembayaran SPP",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Nourman\\UKK\\Pembayaran\\SPP\\" : "app"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Nourman\\UKK\\Pembayaran\\SPP\\" : "test"
+        }
+    },
+    "authors": [
+        {
+            "name": "Noval Surya Mandala"
+        }
+    ],
+    "require": {}
+}
