@@ -7,7 +7,7 @@ class HomeController {
 
 	function index(): void 
 	{
-		View::render("Home/index", null);
+		View::render("home/index", null);
 	}
 }
 
