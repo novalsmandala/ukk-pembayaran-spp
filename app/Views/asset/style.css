@@ -2,82 +2,110 @@
 	--blue: #0072B5;
   --white: #ffffff;
   --basic: #ddd;
-  --red: #F70000;
-  --red-hover: #C1121C;;
-  --grey: #bfb8a5;
-}
+  --primary: #FF9F1C;
+  --secondary: #F71735;
+  --light: #FDFFFC;
+  --rich-black: #011627;
+  --turquoise: #41EAD4;
+  --marian-blue: #1e3888;
+  --white-seasalt: #F8F7F9;
+ }
 
 * {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
-	font-family: Arial;
-	font-size: 1.2rem;
+	font-family: Roboto, Arial;
+	font-size: 1rem;
 }
 
 body {
 	background-color: var(--basic);
 /*	font-size: 1rem;*/
-}
-
-nav {
-	background-color: var(--white);
-	box-shadow: -2px 1px 21px 0px rgba(0,0,0,0.20);
-	padding: .7em 1em;
-	border-bottom-left-radius: .5em;
-	border-bottom-right-radius: .5em;
-	color: var(--blue);
 	display: flex;
 }
 
-nav h1 {
-	flex-grow: 12;
+aside {
+	order: 1;
+/*	height: 100%;*/
+	width: 200px;
+	background-color: white;
+	padding: 1em;
 }
 
-nav h1 a {
-	font-weight: 700;
+aside h1, aside ul {
+	top: 1em;
+	position: fixed;
+}
+
+aside h1 a{
+	font-size: 1em;
 	text-decoration: none;
-	color: var(--blue);
+	color: black;
 }
 
-nav ul {
-	flex-grow: 1;
+aside ul {
+	top: 3em;
+}
+
+aside ul li {
+	margin-left: 1em;
+	list-style: none;
+}
+
+aside ul li a {
+	text-decoration: none;
+	color: grey;
+	font-size: .8em;
+}
+
+aside ul li a:hover {
+	color: black;
+}
+
+aside ul li a.active {
+	color: black;
+}
+
+/* main-content */
+
+.main-content {
+	order: 2;
+	height: 200vh;
+	width: 100%;	
+}
+
+.main-content nav {
+	height: 10vh;
+	right: 0;
+	left: 180px;
+	position: fixed;
 	display: flex;
-	flex-wrap: wrap;
-	margin-right: -1em;
+	padding: 1em;
 }
 
-nav ul li{
-	flex-grow: 1;
-	display: inline-block;
+.main-content nav .title {
+	flex: 1;
+	justify-content: flex-start;
 }
 
-nav ul li a{
-		font-size: .8em;
-		font-weight: 500;
+.main-content nav h1 {
+	flex: 1;
+	justify-content: flex-end;
 }
 
-nav ul li a.item-link{
-	text-decoration: none;
-	color: var(--blue);
-	border-bottom: solid 2px transparent;
-/*	transition: .4s;*/
-	transition: color .2s ease-out, border-bottom-color .2s ease-out;
+.main-content .header {
+	margin-top: 7em;
 }
 
-nav ul li a.item-link:hover{
-	color: var(--blue);
-	border-bottom: solid .1em var(--blue);
+.main-content .header h1{
+	font-size: 2em;
+	text-align: center;
 }
 
-nav ul li a.logout{
-	text-decoration: none;
-	color: var(--white);
-	background-color: var(--red);
-	padding: .3em .5em;
-	border-radius: .9em;
-}
-
-nav ul li a.logout:hover {
-	background-color: var(--red-hover);
+.main-content .dashboard-content {
+	margin: 5em auto;
+	width: 95%;
+	height: 100vh;
+	background-color: white;
 }

@@ -11,12 +11,21 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo __DIR__ . '/../asset/style.css'; ?>">
 </head>
 <body>
-	<nav>
-		<h1><a href="http://pembayaran-spp.ukk/">PEMBAYARAN SPP</a></h1>
+	<aside>
+		<h1 class="logo">
+			<a href="/">PEMBAYARAN SPP</a>
+		</h1>
 		<ul>
-			<!-- <li><?= date("d-m-Y") ?></li> -->
-			<li><a href="/history" class="item-link">History</a></li>
-			<li><a href="/history" class="item-link">About</a></li>
-			<li><a href="/logout" class="logout">Logout</a></li>
+			<li><a class="active" href="/dashboard">dashboard</a></li>
+			<li><a href="/pembayaran">pembayaran</a></li>
 		</ul>
-	</nav>
+	</aside>
+	<div class="main-content">
+		<nav>
+			<div class="title">
+				<h1>Dashboard</h1>
+			</div>
+			<div class="user">
+				<h1>username</h1>
+			</div>
+		</nav>
