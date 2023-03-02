@@ -18,6 +18,7 @@
 		<ul>
 			<li><a class="active" href="/dashboard">dashboard</a></li>
 			<li><a href="/pembayaran">pembayaran</a></li>
+			<li><a href="/kelas">kelas</a></li>
 		</ul>
 	</aside>
 	<div class="main-content">

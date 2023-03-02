@@ -103,9 +103,39 @@ aside ul li a.active {
 	text-align: center;
 }
 
-.main-content .dashboard-content {
+.main-content .dashboard-content, .main-content .kelas-content {
 	margin: 5em auto;
 	width: 95%;
 	height: 100vh;
 	background-color: white;
+}
+
+.main-content .kelas-content {
+	padding-top: 3em;
+}
+
+.main-content .kelas-content h1 {
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.kelas-content table {
+	margin: 3em auto;
+	border-collapse: collapse;
+}
+
+.kelas-content table {
+	height: 2em;
+}
+
+.kelas-content table thead th:nth-child(1) {
+	width: 25ch;
+}
+
+.kelas-content table thead th:nth-child(2) {
+	width: 45ch;
+}
+
+.kelas-content table thead th:nth-child(3) {
+	width: 25ch;
 }
