@@ -1,0 +1,22 @@
+{
+    "name": "noval/ukk-paket-1",
+    "description": "UKK Paket 1 2023 Pembayaran SPP Noval",
+    "type": "project",
+    "authors": [
+        {
+            "name": "Noval Surya Mandala",
+            "email": "noval@paket-1.ukk"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Noval\\UKK\\Paket1\\" : "app"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Noval\\UKK\\Paket1\\" : "test"
+        }
+    },
+    "require": {}
+}
