@@ -28,7 +28,7 @@
 			<?php $models['idSpp']; ?>
 			<option value="<?php echo ($models['idSpp'] == '')? '' : $models['idSpp'] ?>"><?php echo ($models['idSpp'] == '')? 'Pilih Spp' : $models['idSpp'] ?></option>
 			<?php foreach ($models['dataSpp'] as $spp) { ?>
-				<option value="<?= $spp->id ?>"><?= $spp->tahun . " - " . $spp->nominal ?></option>
+				<option value="<?= $spp->id ?>"><?= $spp->tahun . " - Rp." . number_format($spp->nominal) ?></option>
 			<?php } ?>
 		</select>
 		<div class="form-contaner__button-container">

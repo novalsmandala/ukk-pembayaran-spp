@@ -4,7 +4,9 @@
 	--light: white;
 	--dark: black;
 	--danger: red;
+	--danger-hover: rgb(202, 11, 11);
 	--primary: rgba(16, 57, 252, 1);
+	--primary-hover: rgb(68, 99, 253);
 }
 
 * {
@@ -24,8 +26,8 @@ body {
 
 .login-container {
 	margin: 10vh auto;
-	width: 70%;
-	height: 80vh;
+	width: 1100px;
+	height: 57	0px;
 	background-color: var(--light);
 	display: flex;
 }	
@@ -59,7 +61,6 @@ body {
 	border-radius: 2em;
 	align-self: center;
 	font-weight: bold;
-	background-color: var(--danger);
 }
 
 .form-container {
@@ -68,13 +69,17 @@ body {
 }
 
 a.cta-button {
-	background-color: var(--primary);
 	padding: .5em 1em;
+	background-color: var(--danger);
 	color: var(--light);
 	text-decoration: none;
 	border-radius: 1.2em;
 	font-size: 1.2em;
 	cursor: pointer;
+}
+
+a.cta-button:hover {
+	background-color: var(--danger-hover);
 }
 
 .form-container {
@@ -156,6 +161,10 @@ select.form-container__select {
 	background-color: var(--primary);
 	border: none;
 	color: var(--light);
+}
+
+input[type=submit]:hover {
+	background-color: var(--primary-hover);
 }
 
 .reverse {

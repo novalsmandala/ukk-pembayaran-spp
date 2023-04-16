@@ -12,6 +12,7 @@ use Noval\UKK\Paket1\Service\SppService;
 use Noval\UKK\Paket1\Exception\ValidationException;
 use Noval\UKK\Paket1\Model\Siswa;
 use Noval\UKK\Paket1\Config\Database;
+use PDOException;
 
 class SiswaController {
 
@@ -60,20 +61,24 @@ class SiswaController {
 
 public function edit(string $nisn)
 	{
+		$siswa = $this->siswaService->cariSiswa($nisn);
 		$kelas = $this->kelasService->getAll();
+		$kelasTerakhir = $this->kelasService->cariKelas($siswa->idKelas);
 		$spp = $this->sppService->getAll();
-		$result = $this->siswaService->cariSiswa($nisn);
+		$sppTerakhir = $this->sppService->cariSpp($siswa->idSpp);
 		View::render("Siswa/edit", [
 			"dataKelas" => $kelas,
+			"kelasTerakhir" => $kelasTerakhir,
 			"dataSpp" => $spp,
+			"sppTerakhir" => $sppTerakhir,
 			"title" => "Edit Siswa",
-			"nisn" => $result->nisn,
-			"nis" => $result->nis,
-			"nama" => $result->nama,
-			"idKelas" => $result->idKelas,
-			"alamat" => $result->alamat,
-			"noTelp" => $result->noTelp,
-			"idSpp" => $result->idSpp
+			"nisn" => $siswa->nisn,
+			"nis" => $siswa->nis,
+			"nama" => $siswa->nama,
+			"idKelas" => $siswa->idKelas,
+			"alamat" => $siswa->alamat,
+			"noTelp" => $siswa->noTelp,
+			"idSpp" => $siswa->idSpp
 		]);
 	}
 
@@ -89,11 +94,11 @@ public function edit(string $nisn)
 			$siswa->noTelp = $_POST['noTelp'] ?? '';
 			$siswa->idSpp = (int)$_POST['idSpp'] ?? '';
 
-			var_dump($siswa);
 			$result = $this->siswaService->edit($siswa, $oldNisn );
 			view::redirect("/siswa", "data berhasil diubah!");
 		} catch (ValidationException $exception) {
-			$spp = $this->sppService->getAll();
+				$kelas = $this->kelasService->getAll();
+				$spp = $this->sppService->getAll();
 				View::render("Siswa/edit", [
 				"title" => "Ubah Siswa",
 				"dataKelas" => $kelas,
@@ -146,8 +151,12 @@ public function edit(string $nisn)
 
 	public function hapus(string $nisn)
 	{
-		$result = $this->siswaService->delete($nisn);
-		view::redirect("/siswa", "data berhasil dihapus!");
+		try {
+			$this->siswaService->delete($nisn);
+			view::redirect("/siswa", "data berhasil dihapus!");
+		} catch (PDOException $e) {
+			view::redirect("/siswa", "siswa {$nisn} tidak bisa dihapus!");
+		}
 	}
 }
 

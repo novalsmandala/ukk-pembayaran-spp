@@ -10,9 +10,7 @@ use Noval\UKK\Paket1\Model\Spp;
 
 class SiswaService {
 
-	public function __construct(private SiswaRepository $siswaRepository)
-	{
-	}
+	public function __construct(private SiswaRepository $siswaRepository){}
 
 	public function getAll(string $keyword = ''): ?array
 	{
@@ -48,15 +46,13 @@ class SiswaService {
 		$resultByNis = $this->siswaRepository->findByNis($siswa->nis);
 		$isNisExist = !is_null($resultByNis);
 
-		if ($siswa->nisn == $oldNisn AND $siswa->nis == $resultByNisn->nis) {
-			// echo "wala";
-			// var_dump($siswa);
+		if ($siswa->nisn == $oldNisn AND $siswa->nis == $resultByNis->nis) {
 			return $this->siswaRepository->update($siswa, $oldNisn);
 		}
 
 		if ($isNisnExist) {
 			throw new ValidationException("nisn sudah ada!", 1);
-			}
+		}
 
 		if ($isNisExist) {
 			throw new ValidationException("nis sudah ada!", 1);
@@ -111,7 +107,6 @@ class SiswaService {
 		if ($nis == null OR trim($nis) == '') {
 			throw new ValidationException("nis tidak boleh kosong!");
 		}
-
 		if ($nama == null OR trim($nama) == '') {
 			throw new ValidationException("nama tidak boleh kosong!");
 		}
@@ -120,20 +115,13 @@ class SiswaService {
 	public function login(string $nis, string $nama)
 	{
 		$this->validateLogin($nis, $nama);
-
 		$siswa = $this->siswaRepository->findByNis($nis);
-		// var_dump($siswa);
 		if ($siswa == null) {
 			throw new ValidationException("nis atau nama salah");
-			return;
 		}
-		
-
 		if (strtoupper($siswa->nama) != strtoupper($nama)) {
 			throw new ValidationException("nis atau nama salah");
-			return;
 		}
-
 		return $siswa;
 	}
 }

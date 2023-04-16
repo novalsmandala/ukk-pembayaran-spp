@@ -14,7 +14,7 @@
 		<input class="form-container__input" type="text" name="nama" value="<?php echo $models['nama'] ?? '' ?>">
 		<label class="form-container__label" for="kelas">kelas</label>
 		<select class="form-container__select" name="idKelas" required>
-			<option value="<?php echo $models['idKelas'] ?? '' ?>"><?php echo ($models['idKelas'] == '')? 'Pilih Kelas' : $models['idKelas'] ?></option>
+			<option value="<?php echo $models['kelasTerakhir']->id ?? '' ?>"><?php echo ($models['idKelas'] == '')? 'Pilih Kelas' : $models['kelasTerakhir']->nama . " - " . $models['kelasTerakhir']->kompetensiKeahlian ?></option>
 			<?php foreach ($models['dataKelas'] as $kelas) { ?>
 				<option value="<?= $kelas->id ?>"><?= $kelas->nama . " - " . $kelas->kompetensiKeahlian ?></option>
 			<?php } ?>
@@ -26,9 +26,9 @@
 		<label class="form-container__label" for="idSpp">SPP</label>
 		<select class="form-container__select" name="idSpp" required>
 			<?php $models['idSpp']; ?>
-			<option value="<?php echo $models['idSpp'] ?? '' ?>"><?php echo ($models['idSpp'] == '')? 'Pilih Spp' : $models['idSpp'] ?></option>
+			<option value="<?php echo $models['sppTerakhir']->id ?? '' ?>"><?php echo ($models['sppTerakhir']->id == '')? 'Pilih Spp' : $models['sppTerakhir']->tahun . " - Rp." . number_format($models['sppTerakhir']->nominal)  ?></option>
 			<?php foreach ($models['dataSpp'] as $spp) { ?>
-				<option value="<?= $spp->id ?>"><?= $spp->tahun . " - " . $spp->nominal ?></option>
+				<option value="<?= $spp->id ?>"><?= $spp->tahun . " - Rp." . number_format($spp->nominal) ?></option>
 			<?php } ?>
 		</select>
 		<div class="form-contaner__button-container">
